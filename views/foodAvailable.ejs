@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Receiver</title>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+      
+        <!-- CSS Stylesheets -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css">
+      
+        <!-- Font Awesome -->
+        <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+        
+        <script src="js/acceptFood.js"></script>
+        <!-- Bootstrap Scripts -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </head>
+    
+    <body style="background-color:#58b4ae" >
+        
+        <div class="menu">
+            <a href="/profile"> My Profile</a>
+            <!-- <a href="request.html">Post request</a> -->
+            <a href="/foodavailable">Food Availability</a>
+        </div>
+        
+            
+                <% foodAvailable.forEach(result=>{ %>
+                    <div class = "p-3 mb-2 bg-light text-dark" style="background-color: bisque;">
+                    <h3 class="text-success"><%= result.Name%></h3>
+                    <% var name = result.Name; %>
+                    <h5 class="card-text"><%= result.Address%></h5>
+                    <h5 class="card-text"><%= result.Food_Details%></h5>
+                    <% var minutes = Math.abs(new Date().getTime() - new Date(result.Date).getTime()) / 36e5 * 60 %>
+                    <% if (minutes>=60){ %>
+                        <% minutes = Math.floor(minutes/60) %>
+                        <h6 class="text-danger">Posted <%= minutes%> hour ago by <%= result.UserName%></h6>
+                        <% } else { %>
+                        <h6 class="text-danger">Posted <%= Math.ceil(minutes)%> minutes ago by <%= result.UserName%></h6>
+                        <% } %>
+                    <form action='/acceptOrder' method="POST">
+                        <input hidden type="text" name="DonorName" value="<%= result.UserName%>">
+                    <button  class="btn btn-primary" id="btnClick" >Accept</button>
+                </form>
+                    <p></p>
+                </div>
+               
+                <p></p>
+                <% }) %>
+                <p></p>
+                
+        
+    </body>
+</html>
+
+

@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+ <html>
+   <head>
+      <title>Log in</title>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <script src = "js/server.js"></script>
+   </head>
+  <body>
+    <div class="header">
+       <h2>Log in</h2>
+    </div>
+    
+   <form action="/login" method="post" name = loginForm> 
+        <div class="input-group">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+  
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+
+            
+        </div>
+  
+        <div class="input-group" style="background-color:#f1f1f1">
+           <table>
+            <tr>
+              <td><button type="submit" name="login" class ="loginbutton" onclick="loginValidation()">Login</button> </a></td>
+              <td><a href="/register"> <button type="button" class="signUpbtn">Sign up</button> </a></td>
+            </tr>
+          </table>
+       </div>
+   </form>
+ </body>
+</html>

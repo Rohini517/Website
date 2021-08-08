@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <form action="/donorProfile" method="GET">
+    <center>
+        <div class="box"  >
+            <p></p>
+      <h4 >Name : <input type="text" value=""></h4>
+      <h4 >EmailID : <input type="text" value=""></h4>
+      <h4 >Contact Number : <input type="text" value=""></h4>
+      <h4 >Address : <input type="text" value=""></h4> 
+       
+      <button style="float: left; margin: 10px 0 0 18.2%;" class="btn btn-primary">Edit</button>
+      <button style="float: right; margin: 10px 18.2% 0 0;" class="btn btn-primary" disabled>Save</button>
+       <p></p>
+       <p></p>
+      <h3 style="margin-top: 100px;">Activity</h3>
+      
+      
+
+        </div>
+    </center>
+</form>
+</body>
+</html>
+
+<style>
+    
+    body{
+        background-color:  #1c2833;
+    }
+    *:focus{
+        outline: none;
+    }
+    .box{
+        box-sizing: border-box;
+        width: 500px;
+        height: 600px;
+        border : 2px solid #3498db;
+        box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94,104,121,0.2);
+        border-radius: 5px;
+        background-color: white;
+        margin-top: 50px;
+        overflow: hidden;
+    }
+</style>
